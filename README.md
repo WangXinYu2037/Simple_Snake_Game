@@ -1,4 +1,4 @@
-### Simple Snake Game baseing C++ and Cmake
+### Simple Snake Game basing C++ and Cmake
 
 The most of code comes from the 《full course reader》 of Keith Schwarz Stanford University.
 
