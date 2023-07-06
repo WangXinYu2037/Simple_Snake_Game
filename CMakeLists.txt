@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 
 # 生成动态库
-add_library(Game SHARED src/Game.cpp)
+add_library(Game SHARED src/Game.cpp src/GamePlayer.cpp)
 
 # 编译生成可执行文件
 add_executable(Snake main.cpp)

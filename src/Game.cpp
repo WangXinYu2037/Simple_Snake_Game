@@ -102,16 +102,20 @@ void RunSimulation(gameT& game){
     while(game.numEaten < MaxFood){
         /* 打印game中的世界内容，并显示已吃掉的food数量 */
         PrintWorld(game);
-
+        Pause(1);
         cout << "-----------------------------" << endl;
         cout << endl;
-        Pause(1);
-        system("cls");
         /* AI来操控snake的轨迹，设置snake的方向 */
-        PerformAI(game);
+        //PerformAI(game);
+        /* 人来操控snake的轨迹 */
+        PerformPlayer(game);
+
+        cout << game.velocity.row << ", " << game.velocity.col << endl;
         /* 根据AI的选择的方向，移动snake并判断撞墙，吃food，生长*/
         if(!MoveSnake(game))
             break;
+
+        system("cls");
 
 
     }

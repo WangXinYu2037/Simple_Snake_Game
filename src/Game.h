@@ -59,4 +59,6 @@ bool Crashed(point nextHead, gameT& game);
 void DisplayResult(gameT& game);
 
 bool RandomChance(double turnRate);
+
+void PerformPlayer(gameT& game);
 #endif //SNAKE_GAME_H
