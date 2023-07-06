@@ -9,3 +9,23 @@ This book is suitable for C++ beginner just like me, and I decide to continue im
 Every try triggered from my idea makes me more  skilled at C++ programming.
 
 #### TMD，github好难学
+
+```
+###############
+#$           $#
+#   #     #   #
+#   #     #   #
+#   #     #   #
+#   #     #   #
+#   # $   #   #
+#             #
+#   #     #  *#
+#   #     #  *#
+#   #  $  #  *#
+#   #     #  *#
+#   #     # $+#
+#            $#
+###############
+Food Eaten: 4
+```
+

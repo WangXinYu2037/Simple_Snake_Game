@@ -79,7 +79,7 @@ void LoadWorld(gameT& game, ifstream& input){
     for(int i = 0; i < game.numRows; i++){
         getline(input, game.world[i]);
         /* 读入的同时顺便寻找头部位置 */
-        int col = int(game.world[i].find(SnakeTile));
+        int col = int(game.world[i].find(SnakeHead));
         if(col != string::npos){
             point head = MakePoint(i, col);
             game.snake.push_back(head);
@@ -186,8 +186,11 @@ bool MoveSnake(gameT& game){
         bool isFood = (game.world[nextHead.row][nextHead.col] == FoodTile);
 
         if(isFood){
-            game.numEaten += 1;
+            /* 将原来的头部变成身体 */
+            auto head2 = game.snake.begin() + 1;
+            game.world[head2->row][head2->col] = SnakeTile;
             /* 判断吃够没有，够了就不移动 */
+            game.numEaten += 1;
             if(game.numEaten >= MaxFood)
                 return false;
             /* 产生一个新food */
@@ -197,9 +200,14 @@ bool MoveSnake(gameT& game){
             point tail = game.snake.back();
             game.snake.pop_back();
             game.world[tail.row][tail.col] = EmptyTile;
+            /* 将原来的头部变成身体 */
+            auto head2 = game.snake.begin() + 1;
+            if(head2 != game.snake.end())
+                game.world[head2->row][head2->col] = SnakeTile;
         }
         /* 要最后再更新world中的内容 */
-        game.world[nextHead.row][nextHead.col] = SnakeTile;
+
+        game.world[nextHead.row][nextHead.col] = SnakeHead;
         return true;
     }
     return false;
