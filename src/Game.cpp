@@ -105,14 +105,17 @@ void RunSimulation(gameT& game){
 
         cout << "-----------------------------" << endl;
         cout << endl;
+        Pause(1);
+        system("cls");
         /* AI来操控snake的轨迹，设置snake的方向 */
         PerformAI(game);
         /* 根据AI的选择的方向，移动snake并判断撞墙，吃food，生长*/
         if(!MoveSnake(game))
             break;
-        Pause(1);
+
 
     }
+    PrintWorld(game);
     DisplayResult(game);
     Pause(10);
 
